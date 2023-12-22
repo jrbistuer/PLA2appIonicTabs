@@ -15,4 +15,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage),
     ...canActivate(redirectLoggedInToHome)
   },
+  {
+    path: 'vacanca-form',
+    loadComponent: () => import('./pages/vacanca-form/vacanca-form.page').then( m => m.VacancaFormPage)
+  },
+  {
+    path: 'vacanca-form/:id',
+    loadComponent: () => import('./pages/vacanca-form/vacanca-form.page').then( m => m.VacancaFormPage)
+  },
 ];
