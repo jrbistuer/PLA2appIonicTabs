@@ -7,7 +7,7 @@
   "editor.tabSize": 2,
   // organize imports on save
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
   // Uses the project specific typescript version.
   "typescript.tsdk": "node_modules/typescript/lib"
