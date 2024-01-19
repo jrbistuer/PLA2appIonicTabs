@@ -1,7 +1,8 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
+import { IonIcon, IonLabel, IonTabBar, IonTabButton, IonTabs } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square } from 'ionicons/icons';
+import { ellipse, square, triangle } from 'ionicons/icons';
+import { I18nService } from 'src/app/shared/services/i18n.service';
 
 @Component({
   selector: 'app-tabs',
@@ -13,7 +14,8 @@ import { triangle, ellipse, square } from 'ionicons/icons';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() {
+  constructor(private i18nService: I18nService) {
     addIcons({ triangle, ellipse, square });
+    i18nService.changeLanguage('ca');
   }
 }

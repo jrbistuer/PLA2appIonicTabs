@@ -18,7 +18,23 @@
     </ion-toolbar>
   </ion-header>
 
-  <h2>Vacances</h2>
+  <ion-item>
+    <ion-select
+          label="Idioma"
+          placeholder="Idioma"
+          (ionChange)="changeLanguage($event)"
+          [value]="currentLang">
+      <ion-select-option value="ca">Català</ion-select-option>
+      <ion-select-option value="en">English</ion-select-option>
+      <ion-select-option value="es">Español</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <h1>{{ "HELLOWORLD" | translate }}</h1>
+
+  <h1>{{ helloworld }}</h1>
+
+  <h2 [translate]="'APP.HOLIDAYS'"></h2>
 
   <ul>
     @for (vacanca of vacances; track $index) {
