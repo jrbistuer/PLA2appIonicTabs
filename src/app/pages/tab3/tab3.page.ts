@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 import { AlertController, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
@@ -7,7 +8,7 @@ import { AlertController, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, 
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonInput, IonFab, IonFabButton, IonIcon],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonInput, IonFab, IonFabButton, IonIcon],
 })
 export class Tab3Page  implements OnInit {
   isSupported = false;

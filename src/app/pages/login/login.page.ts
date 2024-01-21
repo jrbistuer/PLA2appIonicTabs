@@ -35,8 +35,11 @@ export class LoginPage implements OnInit {
 
 		const user = await this.authService.register(this.credentials.value);
 
+		console.log(user?.user.uid);
+		
+
 		if (user) {
-			this.router.navigateByUrl('/', { replaceUrl: true });
+			this.router.navigate(['/'], { replaceUrl: true });
 		} else {
 			console.log('Registration failed, Please try again!');
 		}
@@ -46,8 +49,10 @@ export class LoginPage implements OnInit {
 
 		const user = await this.authService.login(this.credentials.value);
 
+		console.log(user?.user.uid);
+
 		if (user) {
-			this.router.navigateByUrl('/', { replaceUrl: true });
+			this.router.navigate(['/'], { replaceUrl: true });
 		} else {
 			console.log('Login failed, Please try again!');
 		}

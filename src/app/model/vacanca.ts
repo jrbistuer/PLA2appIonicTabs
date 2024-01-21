@@ -4,4 +4,5 @@ export interface IVacanca {
     preu: number;
     pais: string;
     descripcio: string;
+    user: string;
 }

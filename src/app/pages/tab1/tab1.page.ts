@@ -40,20 +40,41 @@ export class Tab1Page implements OnInit {
     helloworld = '';
 
     ngOnInit(): void {
-      this.vacancesService.getVacances().subscribe((vacances: IVacanca[]) => {
-        this.vacances = vacances;
-      });
       this.currentLang = this.i18nService.getCurrentLanguage();
       console.log('this.currentLang', this.currentLang);
-      this.helloworld = this.translateService.instant("HELLOWORLD");
     }
 
     ionViewWillEnter(): any {
+      console.log('ionViewWillEnter');
+      this.helloworld = this.translateService.instant("HELLOWORLD");
+      this.vacancesService.getVacancesByUser().subscribe((vacances: IVacanca[]) => {
+        this.vacances = vacances;
+      });
+  }
+
+    ionViewDidLoad(): any {
+      console.log('ionViewDidLoad');
+    }
+
+    ionViewDidEnter(): any {
+      console.log('ionViewDidEnter');
+    }
+
+    ionViewWillLeave(): any {
+      console.log('ionViewWillLeave');
+    }
+
+    ionViewDidLeave(): any {
+      console.log('ionViewDidLeave');
+    }
+
+    ionViewWillUnload(): any {
+      console.log('ionViewWillUnload');
     }
 
     logout() {
       this.authService.logout().then(() => {
-        this.router.navigateByUrl('/login');
+        this.router.navigate(['/login'], {replaceUrl: true});
       })
     }
 
@@ -62,11 +83,11 @@ export class Tab1Page implements OnInit {
     }
     
     addVacanca() {
-      this.router.navigateByUrl('/vacanca-form');
+      this.router.navigate(['/vacanca-form']);
     }
 
     updateVacanca(vacanca: IVacanca) {
-      this.router.navigateByUrl(`/vacanca-form/${vacanca.id}`);
+      this.router.navigate([`/vacanca-form/${vacanca.id}`]);
     }
 
     changeLanguage(event: CustomEvent) {
