@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { PushService } from './shared/services/push.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,9 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private pushService: PushService) {
+    this.pushService.addListeners();
+    this.pushService.registerNotifications();
+    this.pushService.getDeliveredNotifications();
+  }
 }
